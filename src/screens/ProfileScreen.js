@@ -338,7 +338,7 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
                         </Text>
 
                     </TouchableOpacity>
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                         onPress={() => {
                             Linking.openURL('https://www.google.com/');
                         }}
@@ -368,7 +368,7 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
                             style={{ fontFamily: fontOpenSansBold, color: 'white', fontSize: dimensions.width * 0.04, textAlign: 'center', fontWeight: 400 }}>
                             Developer Website
                         </Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                     <TouchableOpacity
                         onPress={() => {
                             Linking.openURL('https://www.google.com/');
