@@ -62,10 +62,6 @@ const AddRouteScreen = ({ setThisSelectedScreen, routes, setEntertainments }) =>
 
 
     const handleImagePicker = () => {
-        if (images.length >= 3) {
-            Alert.alert('You can only add up to 3 images.');
-            return;
-        }
         ImagePicker.launchImageLibrary({ mediaType: 'photo' }, (response) => {
             if (response.didCancel) {
                 console.log('User cancelled image picker');
@@ -77,7 +73,7 @@ const AddRouteScreen = ({ setThisSelectedScreen, routes, setEntertainments }) =>
         });
     };
 
-    const handleSave = async () => {
+    const handleSaveRoute = async () => {
         const routes = JSON.parse(await AsyncStorage.getItem('Routes')) || [];
         const newId = routes.length > 0 ? Math.max(...routes.map(e => e.id)) + 1 : 1;
         const newEntertainment = {
@@ -144,9 +140,6 @@ const AddRouteScreen = ({ setThisSelectedScreen, routes, setEntertainments }) =>
                 justifyContent: 'space-between',
                 width: '93%',
                 padding: dimensions.width * 0.02,
-
-
-
                 backgroundColor: 'rgba(255, 255, 255, 0.09)',
                 borderRadius: dimensions.width * 0.05,
                 paddingHorizontal: dimensions.width * 0.05,
@@ -641,7 +634,7 @@ const AddRouteScreen = ({ setThisSelectedScreen, routes, setEntertainments }) =>
                     <TouchableOpacity
                         disabled={!markerCoordinates || !locationName || !routeName || !rating || !selectedRouteCategory || !selectedRouteType}
                         onPress={() => {
-                            handleSave();
+                            handleSaveRoute();
                             addCarrots();
                         }}
                         style={{

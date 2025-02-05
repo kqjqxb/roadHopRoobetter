@@ -23,8 +23,7 @@ import ShopScreen from './ShopScreen';
 
 
 const fontOpenSansBold = 'OpenSans-Bold';
-const fontOpenSansRegular = 'OpenSans-Regular';
-const fontOpenSansSemiBold = 'OpenSans-SemiBold';
+
 
 
 

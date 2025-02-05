@@ -4,12 +4,7 @@ import {
     Text,
     TouchableOpacity,
     Image,
-    StyleSheet,
     Dimensions,
-    ActivityIndicator,
-    Share,
-    Animated,
-    Easing,
     Alert,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -87,21 +82,6 @@ const ShopScreen = ({ setThisSelectedScreen, thisSelectedScreen }) => {
     };
 
     const isIconSaved = (id) => savedIconsIds.includes(id);
-
-
-    // useEffect(() => {
-    //     if (carrots) {
-
-    //         dispatch(updateUserData({ carrots: carrots + carrots }));
-    //         dispatch(saveUserData({ carrots: carrots + carrots }));
-    //     } else {
-    //         dispatch(updateUserData({ carrots: carrots }));
-    //         dispatch(saveUserData({ carrots: carrots }));
-    //     }
-
-    // }, [])
-
-
 
     const subtractCarrots = (amount) => {
         if (carrots >= amount) {

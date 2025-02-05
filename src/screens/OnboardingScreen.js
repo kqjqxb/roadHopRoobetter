@@ -6,10 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 
 const StyledView = styled(View);
 
-const fontNunitoExtraBold = 'Nunito-ExtraBold';
-const fontNunitoRegular = 'Nunito-Regular';
-const fontNunitoSemBold = 'Nunito-SemiBold';
-
 const fontOpenSansBold = 'OpenSans-Bold';
 const fontOpenSansRegular = 'OpenSans-Regular';
 
@@ -32,6 +28,13 @@ const OnboardingScreen = () => {
     };
   }, []);
 
+  const scrollToTheNextOnboard = () => {
+    if (currentIndex < verdeOnboardingData.length - 1) {
+      slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
+    } else {
+      navigation.navigate('Home');
+    }
+  };
 
 
 
@@ -43,14 +46,7 @@ const OnboardingScreen = () => {
 
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
 
-  const scrollToTheNextOnboard = () => {
-    if (currentIndex < verdeOnboardingData.length - 1) {
-      slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
-    } else {
-      navigation.navigate('Home');
-    }
-  };
-
+  
 
   const renderItem = ({ item }) => (
     <View style={{ width: dimensions.width, flex: 1, justifyContent: 'flex-start', alignItems: 'center' }} >
@@ -76,27 +72,27 @@ const OnboardingScreen = () => {
       }}>
         <Text
           style={{
-            fontSize: dimensions.width * 0.061,
             fontFamily: fontOpenSansBold,
-            maxWidth: '70%',
-            color: '#DDB43F',
+            paddingHorizontal: 21,
             marginTop: 21,
+            maxWidth: '70%',
             textAlign: 'left',
+            color: '#DDB43F',
             fontWeight: 'bold',
+            fontSize: dimensions.width * 0.061,
             marginTop: dimensions.height * 0.05,
             alignSelf: 'flex-start',
-            paddingHorizontal: 21,
           }}>
           {item.title}
         </Text>
         <Text
           style={{
-            fontFamily: fontOpenSansRegular,
             fontSize: dimensions.width < 400 ? dimensions.width * 0.04 : dimensions.width * 0.045,
-            paddingHorizontal: 21,
-            color: 'white',
-            textAlign: 'left',
             marginTop: 8,
+            fontFamily: fontOpenSansRegular,
+            paddingHorizontal: 21,
+            textAlign: 'left',
+            color: 'white',
           }}>
           {item.description}
         </Text>
@@ -144,7 +140,13 @@ const OnboardingScreen = () => {
         }}
       >
         <Text
-          style={{ fontFamily: fontNunitoExtraBold, color: 'white', fontSize: dimensions.width * 0.04, textAlign: 'center', fontWeight: 600 }}>
+          style={{ 
+            fontFamily: fontOpenSansBold, 
+            color: 'white', 
+            fontSize: dimensions.width * 0.04, 
+            textAlign: 'center', 
+            fontWeight: 600 
+          }}>
           {currentIndex === verdeOnboardingData.length - 1 ? 'Start' : 'Next'}
         </Text>
       </TouchableOpacity>

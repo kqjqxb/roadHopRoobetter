@@ -1,19 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { format } from 'date-fns'; 
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ActivityIndicator, View, Platform } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DeviceInfo from 'react-native-device-info';
 import { TailwindProvider } from 'tailwind-rn';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { UserProvider, UserContext } from './src/context/UserContext';
 import utilities from './tailwind.json';
 import HomeScreen from './src/screens/HomeScreen';
-import OnboardingScreen from './src/screens/OnboardingScreen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { UserProvider, UserContext } from './src/context/UserContext';
+import OnboardingScreen from './src/screens/OnboardingScreen';
+import { NavigationContainer } from '@react-navigation/native';
 import { Provider, useDispatch } from 'react-redux';
 import store from './src/redux/store';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { loadUserData } from './src/redux/userSlice';
 
 
@@ -37,12 +36,11 @@ const CultureStack = () => {
 
 const AppNavigator = () => {
   const { user, setUser } = useContext(UserContext);
-  const [initializing, setInitializing] = useState(true);
   const [onboardingVisible, setOnboardingVisible] = useState(false);
   const dispatch = useDispatch();
 
 
-  const [initializingPolandApp, setInitializingMinSpiritApp] = useState(true);
+  const [initializingRoadHopApp, setInitializingMinSpiritApp] = useState(true);
 
   useEffect(() => {
     dispatch(loadUserData());
@@ -54,19 +52,19 @@ const AppNavigator = () => {
         const deviceId = await DeviceInfo.getUniqueId();
         const storageKey = `currentUser_${deviceId}`;
         const storedUser = await AsyncStorage.getItem(storageKey);
-        const isOnboardingWasAlreadyStarted = await AsyncStorage.getItem('isOnboardingWasAlreadyStarted');
+        const isOnboardingHasStarted = await AsyncStorage.getItem('isOnboardingHasStarted');
 
         if (storedUser) {
           setUser(JSON.parse(storedUser));
           setOnboardingVisible(false);
-        } else if (isOnboardingWasAlreadyStarted) {
+        } else if (isOnboardingHasStarted) {
           setOnboardingVisible(false);
         } else {
           setOnboardingVisible(true);
-          await AsyncStorage.setItem('isOnboardingWasAlreadyStarted', 'true');
+          await AsyncStorage.setItem('isOnboardingHasStarted', 'true');
         }
       } catch (error) {
-        console.error('Error cur loading of user', error);
+        console.error('Error loading of this user', error);
       } finally {
         setInitializingMinSpiritApp(false);
       }
@@ -74,15 +72,15 @@ const AppNavigator = () => {
     loadThisUser();
   }, [setUser]);
 
-  if (initializingPolandApp) {
+  if (initializingRoadHopApp) {
     return (
       <View style={{
-        backgroundColor: '#020202',  
-        alignItems: 'center',  
         flex: 1, 
+        backgroundColor: '#0A0C1D',  
         justifyContent: 'center', 
+        alignItems: 'center',  
         }}>
-        <ActivityIndicator size="large" color="white" />
+        <ActivityIndicator size="large" color="#DDB43F" />
       </View>
     );
   }

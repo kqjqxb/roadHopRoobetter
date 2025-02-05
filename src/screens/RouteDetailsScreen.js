@@ -26,31 +26,6 @@ const fontOpenSansBold = 'OpenSans-Bold';
 const RouteDetailsScreen = ({ setThisSelectedScreen, thisSelectedScreen, selectedRoute, setEntertainments, entertainments }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
     const [isTextClosed, setIsTextClosed] = useState(true);
-    const [isEditingNow, setIsEditingNow] = useState(false);
-
-
-    const handleDelete = async (id) => {
-        const updatedEntertainments = entertainments.filter(item => item.id !== id);
-        setEntertainments(updatedEntertainments);
-        await AsyncStorage.setItem('Entertainments', JSON.stringify(updatedEntertainments));
-    };
-
-
-    const formatTime = (timeString) => {
-        const date = new Date(timeString);
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
-        return `${hours}:${minutes}`;
-    };
-
-
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const year = date.getFullYear();
-        return `${day}.${month}.${year}`;
-    };
 
     return (
         <SafeAreaView style={{

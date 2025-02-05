@@ -17,16 +17,12 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ChevronLeftIcon, CheckIcon, PlusIcon } from 'react-native-heroicons/solid';
 import * as ImagePicker from 'react-native-image-picker';
-import { add, set } from 'date-fns';
-import MapView, { Marker } from 'react-native-maps';
-import { is } from 'date-fns/locale';
 
 const fontRobotoBold = 'Roboto-Bold';
 const fontOpenSansBold = 'OpenSans-Bold';
 
 const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
-    const [isTextClosed, setIsTextClosed] = useState(true);
 
     const [image, setImage] = useState(null);
     const [name, setName] = useState('');
@@ -64,29 +60,14 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
     }, [isProfileEditingNow, thisSelectedScreen]);
 
 
-    // useEffect(() => {
-    //     const clearAsyncStorage = async () => {
-    //         try {
-    //             await AsyncStorage.clear();
-    //             console.log('AsyncStorage cleared');
-    //         } catch (error) {
-    //             console.error('Error clearing AsyncStorage:', error);
-    //         }
-    //     };
-
-    //     // Виклик функції для очищення AsyncStorage
-    //     clearAsyncStorage();
-    // }, [])
-
-
     const handleImagePicker = () => {
         ImagePicker.launchImageLibrary({ mediaType: 'photo' }, (response) => {
             if (response.didCancel) {
-                console.log('User cancelled image picker');
+                console.log('User cancelle image picker');
             } else if (response.error) {
-                console.log('ImagePicker Error: ', response.error);
+                console.log('Image Pick Error: ', response.error);
             } else {
-                setImage(response.assets[0].uri); // Set the selected image
+                setImage(response.assets[0].uri); 
             }
         });
     };
@@ -96,10 +77,8 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
 
 
     const handleDateChange = (text) => {
-        // Remove any non-digit characters
         const cleaned = text.replace(/[^0-9]/g, '');
 
-        // Format the cleaned input as dd.mm.yyyy
         let formatted = cleaned;
         if (cleaned.length > 2) {
             formatted = `${cleaned.slice(0, 2)}.${cleaned.slice(2)}`;
@@ -108,7 +87,6 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
             formatted = `${cleaned.slice(0, 2)}.${cleaned.slice(2, 4)}.${cleaned.slice(4, 8)}`;
         }
 
-        // Validate the year
         if (cleaned.length >= 8) {
             const year = parseInt(cleaned.slice(4, 8), 10);
             if (year < 1950 || year > 2024) {

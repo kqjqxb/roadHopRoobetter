@@ -313,7 +313,7 @@ const CarrotScreen = ({ setThisSelectedScreen, thisSelectedScreen }) => {
                                     width: '45%',
                                     position: 'relative',
                                     margin: dimensions.width * 0.016,
-                                    overflow: 'hidden', // Ensure the border radius is applied to the image
+                                    overflow: 'hidden', 
                                     zIndex: 500,
                                 }}
                             >
