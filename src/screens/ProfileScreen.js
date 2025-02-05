@@ -371,7 +371,7 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
                     </TouchableOpacity> */}
                     <TouchableOpacity
                         onPress={() => {
-                            Linking.openURL('https://www.google.com/');
+                            Linking.openURL('https://www.termsfeed.com/live/5bdf02f0-7e39-41b9-b8cd-b1e94d67b0e3');
                         }}
                         style={{
                             backgroundColor: '#DDB43F',
@@ -402,7 +402,7 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => {
-                            Linking.openURL('https://www.google.com/');
+                            Linking.openURL('https://www.termsfeed.com/live/d0c57033-b00c-4ee0-821a-cec935b88a68');
                         }}
                         style={{
                             backgroundColor: '#DDB43F',
