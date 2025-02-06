@@ -7,12 +7,12 @@ workflows:
       groups:
         - creds
       vars:
-        XCODE_WORKSPACE: "MelodyKing.xcworkspace" # <----
-        XCODE_SCHEME: "MelodyKing" # <----
-        BUNDLE_ID: "com.melodykinggingscolorkeys.app" # <----
-        APP_STORE_APP_ID: 6741569054 # <----
-        APP_STORE_CONNECT_KEY_ID: "B9GXFHSH9J" # <----
-        APP_STORE_CONNECT_ISSUER_ID: "78d6089b-e94e-4e6b-b441-5213ba7e619a" # <----
+        XCODE_WORKSPACE: "RoadHopRoobetter.xcworkspace" # <----
+        XCODE_SCHEME: "RoadHopRoobetter" # <----
+        BUNDLE_ID: "com.roadhoproobetter.app" # <----
+        APP_STORE_APP_ID: 6741513505 # <----
+        APP_STORE_CONNECT_KEY_ID: "P82J9J8UZ5" # <----
+        APP_STORE_CONNECT_ISSUER_ID: "d7f4387d-5ec2-4d94-8303-5133e9210126" # <----
         node: latest
         xcode: latest
         cocoapods: default
@@ -52,7 +52,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - malagigitalon5@gmail.com       # <----
+          - arsacodan@icloud.com       # <----
         notify:
           success: true
           failure: false
