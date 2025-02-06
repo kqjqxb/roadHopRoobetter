@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, FlatList, Animated, Text, TouchableOpacity, ImageBackground, Dimensions, Image, Platform } from 'react-native';
 import { styled } from 'nativewind';
-import verdeOnboardingData from '../components/roobetOnboardingDataFile';
+import verdeOnboardingData from '../components/robbetOnboardingDataFile';
 import { useNavigation } from '@react-navigation/native';
 
 const StyledView = styled(View);

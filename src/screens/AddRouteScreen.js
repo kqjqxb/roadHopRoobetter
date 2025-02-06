@@ -5,12 +5,9 @@ import {
     TouchableOpacity,
     Image,
     Dimensions,
-    Share,
     ScrollView,
     Alert,
     TextInput,
-    Modal,
-    TouchableWithoutFeedback,
     SafeAreaView,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -24,7 +21,7 @@ import { updateUserData, saveUserData } from '../redux/userSlice';
 const fontRobotoBold = 'Roboto-Bold';
 const fontOpenSansBold = 'OpenSans-Bold';
 
-const AddRouteScreen = ({ setThisSelectedScreen, routes, setEntertainments }) => {
+const AddRouteScreen = ({ setThisSelectedScreen,  }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
     const [isTextClosed, setIsTextClosed] = useState(true);
     const [routeName, setTitle] = useState('');

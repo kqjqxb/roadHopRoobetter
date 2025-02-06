@@ -92,12 +92,6 @@ const ShopScreen = ({ setThisSelectedScreen, thisSelectedScreen }) => {
     };
 
 
-    const addCarrots = (amount) => {
-        const updatedCarrotsAmount = carrots + amount;
-        dispatch(updateUserData({ carrots: updatedCarrotsAmount, }));
-        dispatch(saveUserData({ carrots: updatedCarrotsAmount, }));
-    };
-
 
     const handleDelete = (amount) => {
         Alert.alert(

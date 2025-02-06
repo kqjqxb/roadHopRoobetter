@@ -40,14 +40,14 @@ const AppNavigator = () => {
   const dispatch = useDispatch();
 
 
-  const [initializingRoadHopApp, setInitializingMinSpiritApp] = useState(true);
+  const [initializingRoadHopApp, setInitializingRoadHopApp] = useState(true);
 
   useEffect(() => {
     dispatch(loadUserData());
   }, [dispatch]);
 
   useEffect(() => {
-    const loadThisUser = async () => {
+    const loadThisUserThere = async () => {
       try {
         const deviceId = await DeviceInfo.getUniqueId();
         const storageKey = `currentUser_${deviceId}`;
@@ -66,10 +66,10 @@ const AppNavigator = () => {
       } catch (error) {
         console.error('Error loading of this user', error);
       } finally {
-        setInitializingMinSpiritApp(false);
+        setInitializingRoadHopApp(false);
       }
     };
-    loadThisUser();
+    loadThisUserThere();
   }, [setUser]);
 
   if (initializingRoadHopApp) {

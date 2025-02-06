@@ -5,12 +5,8 @@ import {
     TouchableOpacity,
     Image,
     Dimensions,
-    Share,
-    ScrollView,
     Alert,
     TextInput,
-    Modal,
-    TouchableWithoutFeedback,
     SafeAreaView,
     Linking,
 } from 'react-native';

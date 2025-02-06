@@ -5,25 +5,16 @@ import {
     TouchableOpacity,
     Image,
     Dimensions,
-    Share,
     ScrollView,
-    Alert,
     SafeAreaView,
-    ImageBackground,
-    Modal,
-    Switch,
-    TextInput,
-    Linking,
 } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ArrowRightIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon, PlusIcon } from 'react-native-heroicons/solid';
-import { is, se } from 'date-fns/locale';
+import { ChevronLeftIcon, } from 'react-native-heroicons/solid';
 import MapView, { Marker } from 'react-native-maps';
 
 const fontSFProBold = 'SFProText-Bold';
 const fontOpenSansBold = 'OpenSans-Bold';
 
-const RouteDetailsScreen = ({ setThisSelectedScreen, thisSelectedScreen, selectedRoute, setEntertainments, entertainments }) => {
+const RouteDetailsScreen = ({ setThisSelectedScreen, thisSelectedScreen, selectedRoute, }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
     const [isTextClosed, setIsTextClosed] = useState(true);
 
