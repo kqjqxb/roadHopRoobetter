@@ -201,8 +201,12 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
                             ? { uri: storageImage }
                             : require('../assets/icons/carrotBigIcon.png')}
                         style={{
-                            width: dimensions.height * 0.19,
-                            height: dimensions.height * 0.19,
+                            // width: dimensions.height * 0.19,
+                            // height: dimensions.height * 0.19,
+
+
+                            width: dimensions.height * 0.68,
+                            height: dimensions.height * 0.5,
                             textAlign: 'center',
                             alignSelf: 'center',
                             borderRadius: dimensions.width * 0.5,
