@@ -164,9 +164,11 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
             }}>
                 <TouchableOpacity
                     onPress={() => {
-                        if (isProfileEditingNow) {
-                            setIsProfileEditingNow(false);
-                        } else setThisSelectedScreen('Home');
+                        // if (isProfileEditingNow) {
+                        //     setIsProfileEditingNow(false);
+                        // } else setThisSelectedScreen('Home');
+
+                        backFunction();
                     }}
                     style={{
 
@@ -197,7 +199,7 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
                     <Image
                         source={storageImage
                             ? { uri: storageImage }
-                            : require('../assets/images/onboardingImage1.png')}
+                            : require('../assets/icons/carrotBigIcon.png')}
                         style={{
                             width: dimensions.height * 0.19,
                             height: dimensions.height * 0.19,
@@ -261,7 +263,7 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
 
                             paddingHorizontal: 21,
                         }}>
-                        {storageEmail ? storageEmail : 'example@gmail.com'}
+                        {storageEmail ? storageEmail : 'your_email@gmail.com'}
                     </Text>
                     <Text
                         style={{
@@ -312,37 +314,6 @@ const ProfileScreen = ({ setThisSelectedScreen, routes, thisSelectedScreen }) =>
                         </Text>
 
                     </TouchableOpacity>
-                    {/* <TouchableOpacity
-                        onPress={() => {
-                            Linking.openURL('https://www.google.com/');
-                        }}
-                        style={{
-                            backgroundColor: '#DDB43F',
-                            borderRadius: dimensions.width * 0.025,
-                            paddingVertical: dimensions.height * 0.019,
-                            marginTop: dimensions.height * 0.008,
-                            alignSelf: 'center',
-                            width: '95%',
-                            flexDirection: 'row',
-                            justifyContent: 'flex-start',
-                            paddingHorizontal: dimensions.width * 0.05,
-                        }}
-                    >
-                        <Image
-                            source={require('../assets/icons/settingsIcons/developerIcon.png')}
-                            style={{
-                                width: dimensions.width * 0.05,
-                                height: dimensions.width * 0.05,
-                                marginRight: dimensions.width * 0.03,
-                                textAlign: 'center'
-                            }}
-                            resizeMode="contain"
-                        />
-                        <Text
-                            style={{ fontFamily: fontOpenSansBold, color: 'white', fontSize: dimensions.width * 0.04, textAlign: 'center', fontWeight: 400 }}>
-                            Developer Website
-                        </Text>
-                    </TouchableOpacity> */}
                     <TouchableOpacity
                         onPress={() => {
                             Linking.openURL('https://www.termsfeed.com/live/5bdf02f0-7e39-41b9-b8cd-b1e94d67b0e3');

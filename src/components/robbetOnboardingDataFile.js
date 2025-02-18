@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    title: "Welcome to the RoadHop Roobetter app. Try our features now!",
+    title: "Welcome to the RoadHop Robbetter app. Try our features now!",
     description: "Try our features now, the necessary information and mini-game are waiting for you here.",
     image: require('../assets/images/onboardingImage1.png'),
   },

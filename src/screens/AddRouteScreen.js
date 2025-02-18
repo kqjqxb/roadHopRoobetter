@@ -11,9 +11,8 @@ import {
     SafeAreaView,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ChevronLeftIcon, CheckIcon, PlusIcon } from 'react-native-heroicons/solid';
+import { ChevronLeftIcon, PlusIcon } from 'react-native-heroicons/solid';
 import * as ImagePicker from 'react-native-image-picker';
-import { add } from 'date-fns';
 import MapView, { Marker } from 'react-native-maps';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserData, saveUserData } from '../redux/userSlice';
@@ -97,7 +96,7 @@ const AddRouteScreen = ({ setThisSelectedScreen,  }) => {
 
 
 
-    const handleDeleteImage = (index) => {
+    const handleDeleteHereImage = (index) => {
         Alert.alert(
             "Delete Image",
             "Are you sure you want to delete this image?",
@@ -144,9 +143,11 @@ const AddRouteScreen = ({ setThisSelectedScreen,  }) => {
             }}>
                 <TouchableOpacity
                     onPress={() => {
-                        if (!isTextClosed) {
-                            setIsTextClosed(true);
-                        } else setThisSelectedScreen('Home');
+                        // if (!isTextClosed) {
+                        //     setIsTextClosed(true);
+                        // } else setThisSelectedScreen('Home');
+
+                        backAction();
                     }}
                     style={{
 
@@ -521,7 +522,7 @@ const AddRouteScreen = ({ setThisSelectedScreen,  }) => {
                             </TouchableOpacity>
                         )}
                         {images.map((image, index) => (
-                            <TouchableOpacity key={index} onPress={() => handleDeleteImage(index)}>
+                            <TouchableOpacity key={index} onPress={() => handleDeleteHereImage(index)}>
                                 <Image
                                     source={{ uri: image }}
                                     style={{
@@ -622,7 +623,7 @@ const AddRouteScreen = ({ setThisSelectedScreen,  }) => {
                                 coordinate={markerCoordinates}
                                 title={locationName ? locationName : 'No location name here'}
                                 description={description ? (description.length > 30 ? description.substring(0, 30) + '...' : description) : "This is the location you selected"}
-                                pinColor="#DDB43F"
+                                pinColor="#0A0C1D"
                             />
                         )}
                     </MapView>

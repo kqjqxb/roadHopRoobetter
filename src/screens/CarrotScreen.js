@@ -261,7 +261,9 @@ const CarrotScreen = ({ setThisSelectedScreen, thisSelectedScreen }) => {
                     ))}
                     <TouchableOpacity
                         onPress={() => {
-                            setIsRulesVisible(true);
+                            // setIsRulesVisible(true);
+                            rulesHello();
+
                         }}
                         style={{
                             backgroundColor: '#DDB43F',
